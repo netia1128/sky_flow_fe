@@ -6,14 +6,11 @@ export const FlightsTable = () => {
 
   const [flights, setFlights] = useState([
     { id: 1, origin: 'DEN', destination: 'BOS'},
-    { id: 1, origin: 'DEN', destination: 'FLL'},
-    { id: 1, origin: 'DEN', destination: 'PVD'},
+    { id: 2, origin: 'DEN', destination: 'FLL'},
+    { id: 3, origin: 'DEN', destination: 'PVD'},
   ]);
 
-
   return (
-
-
     <section className="flightsTable">
       <h3>Flights</h3>
       <section>

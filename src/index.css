@@ -6,6 +6,12 @@
   left:0;
 }
 
+.flightPreview {
+  padding: 10px 16px;
+  mergin: 20px 0;
+  border-bottom: 1px solid lightgrey;
+}
+
 .homePageContent {
   display: flex;
 }
