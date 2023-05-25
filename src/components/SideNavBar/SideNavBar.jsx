@@ -1,9 +1,11 @@
 
+import { useState } from 'react';
+
 export const SideNavBar = () => {
-  let buttonColor = "lightBlue"
+  const [buttonColor, setButtonColor] = useState('lightBlue');
   const clickTestButton = () => {
     console.log(buttonColor);
-    buttonColor === "lightBlue" ? buttonColor = "pink" : buttonColor = "lightBlue";
+    buttonColor === "lightBlue" ? setButtonColor("pink") : setButtonColor("lightBlue");
   }
   return (
     <aside className="sideNavBar">
