@@ -1,6 +1,6 @@
 import { useState } from 'react';
 // import { getFlights } from '../../services/flightsDataService';
-// import { FlightsTableRow } from '../FlightsTableRow';
+import { FlightsTableRow } from '../FlightsTableRow/FlightsTableRow';
 
 export const FlightsTable = () => {
 
@@ -15,12 +15,7 @@ export const FlightsTable = () => {
       <h3>Flights</h3>
       <section>
         {flights.map((flight) => (
-          <section className="flightPreview" key={flight.id}>
-            <h4>Flight {flight.id} </h4>
-            <p>
-              Origin: {flight.origin} Destination:{flight.destination}
-            </p> 
-          </section>
+          <FlightsTableRow flight={flight} />
         ))}
       </section>
     </section>

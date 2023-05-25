@@ -1,9 +1,10 @@
-const FlightsTableRow = ({flight}) => {
+export const FlightsTableRow = ({flight}) => {
   return (
-    <article>
-      <p>{flight.id}</p>
-      <p>{flight.origin}</p>
-      <p>{flight.destination}</p>
-    </article>
+    <section className="flightPreview" key={flight.id}>
+    <h4>Flight {flight.id} </h4>
+    <p>
+      Origin: {flight.origin} Destination:{flight.destination}
+    </p> 
+  </section>
   )
 }
