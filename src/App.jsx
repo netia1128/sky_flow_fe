@@ -1,17 +1,21 @@
 import React from 'react';
-import logo from './assets/SkyFlowLogo.png';
-import './App.css';
+import './index.css';
 import { TopNavBar } from './components/TopNavBar/TopNavBar.jsx';
+import { getFlights } from './services/flightsDataService';
 
 export const App = () => {
+  const flights = getFlights()
+
+
   return (
     <React.StrictMode>
     
-      <main className="App">
-        <img src={logo} className="AppLogo" alt="logo" />
-        <TopNavBar>
-          
-        </TopNavBar>
+      <main className="app">
+        
+        <TopNavBar />
+        <body>
+          {Math.random()}
+        </body>
       </main>
     </React.StrictMode>
   );
