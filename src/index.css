@@ -10,6 +10,22 @@
   left:0;
 }
 
+.homePageContent {
+  display: flex;
+}
+
+.homePageContent .sideNavBar {
+  flex: 20%;
+  border-style: solid;
+  margin: 20px;
+}
+
+.homePageContent .flightsTable {
+  flex: 80%;
+  border-style: solid;
+  margin: 20px;
+}
+
 .topNavBar {
   padding: 20px;
   align-items: center;
