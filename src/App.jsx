@@ -19,9 +19,7 @@ export const App = () => {
   const [originFilter, setOriginFilter] = useState([]);
   
   const filterOrigin = ({origin}) => {
-    console.log('origin is', origin)
     const newOriginFilterArray = [...originFilter, origin];
-    console.log('new arr is', newOriginFilterArray)
     setOriginFilter(newOriginFilterArray);
   }
 

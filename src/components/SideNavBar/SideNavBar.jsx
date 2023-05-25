@@ -8,7 +8,6 @@ export const SideNavBar = ({filterOrigin, origins}) => {
       <h3>Filter Origin</h3>
       <div className="filterButtonDiv">
         {origins.map((origin) => {
-          console.log(origin)
             return <FilterButton filterOrigin={filterOrigin} origin={origin}key={origin}/>
         })}
       </div>
