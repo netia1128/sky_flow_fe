@@ -6,6 +6,10 @@
   left:0;
 }
 
+.filterButton{
+  padding: 20px;
+}
+
 .flightPreview {
   padding: 10px 16px;
   mergin: 20px 0;
