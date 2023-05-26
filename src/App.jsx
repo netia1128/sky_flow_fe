@@ -20,9 +20,13 @@ export const App = () => {
     }, []
   )
 
-  const filterOrigin = ({origin}) => {
-    const newOriginFilterArray = [...originFilter, origin];
-    setOriginFilter(newOriginFilterArray);
+  const filterOrigin = ({origin, isButtonSelected}) => {
+    console.log(originFilter)
+    if(originFilter.includes(origin)) {
+      setOriginFilter([...originFilter].filter((existingOrigin) => existingOrigin != origin))
+    } else {
+      setOriginFilter([...originFilter, origin]);
+    }
   }
 
   return (
