@@ -3,7 +3,7 @@ import logo from '../../assets/SkyFlowLogo.png';
 export const TopNavBar = () => {
   return (
     <nav className="topNavBar">
-      <img src={logo} className="appLogo" alt="logo" />
+      <img src={logo} className="app-logo" alt="logo" />
       <section className="links">
         <a href="/">Home</a>
         <a href="/about">About</a>

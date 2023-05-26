@@ -31,21 +31,21 @@ export const App = () => {
 
   const filterOrigin = ({origin}) => {
     if(originFilter.includes(origin)) {
-      setOriginFilter([originFilter].filter((existingOrigin) => existingOrigin != origin))
+      setOriginFilter([originFilter].filter((existingOrigin) => existingOrigin !== origin))
     } else {
       setOriginFilter([originFilter, origin]);
     }
   }
 
   return (
-    <React.StrictMode>
-        <TopNavBar filterOrigin={filterOrigin} />
-        <body className='homePageContent'>
-          <SideNavBar filterOrigin={filterOrigin} origins={origins}/>
-          {isLoading && <div className="flightsTable">Flights Coming Soon!</div> }
-          {isError && <div className="flightsTable">Sorry, there was an error loading flights</div> }
-          {flights && <FlightsTable originFilter={originFilter} flights={flights}/>}
-        </body>
-    </React.StrictMode>
+    <>
+      <TopNavBar filterOrigin={filterOrigin} />
+      <main className='homePageContent'>
+        <SideNavBar filterOrigin={filterOrigin} origins={origins}/>
+        {isLoading && <div className="flightsTable">Flights Coming Soon!</div> }
+        {isError && <div className="flightsTable">Sorry, there was an error loading flights</div> }
+        {flights && <FlightsTable originFilter={originFilter} flights={flights}/>}
+      </main>
+    </>
   );
 }
