@@ -7,9 +7,9 @@ export const FlightsTable = ({originFilter, flights}) => {
     <section className="flightsTable">
       <h3>Flights</h3>
       <section>
-        {flights.filter((flight) => (
+        {flights?.filter((flight) => (
           originFilter.length ? originFilter.includes(flight.origin) : flight
-        )).map((flight) => (
+        ))?.map((flight) => (
           <FlightsTableRow flight={flight} key={flight.id}/>
         ))}
       </section>

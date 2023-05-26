@@ -1,23 +1,25 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import React from 'react';
-import './index.css';
-import { TopNavBar } from './components/TopNavBar/TopNavBar.jsx';
+import './index.scss';
+import { getFlights } from './services/flightsDataService'
+import { TopNavBar } from './components/TopNavBar/TopNavBar';
 import { SideNavBar } from './components/SideNavBar/SideNavBar';
 import { FlightsTable } from './components/FlightsTable/FlightsTable';
 
 export const App = () => {
-  const [flights, setFlights] = useState([
-    { id: 1, origin: 'DEN', destination: 'BOS'},
-    { id: 2, origin: 'DEN', destination: 'FLL'},
-    { id: 3, origin: 'DEN', destination: 'PVD'},
-    { id: 4, origin: 'ORD', destination: 'PVD'},
-    { id: 5, origin: 'PBI', destination: 'BOS'},
-  ]);
-
-  const origins = [...new Set(flights.map((flight) => flight.origin))];
-
+  const [flights, setFlights] = useState(null);
+  const [origins, setOrigins] = useState([]);
   const [originFilter, setOriginFilter] = useState([]);
-  
+
+  useEffect(() => {
+    const data = getFlights()
+      .then( data => {
+      setFlights(data);
+      setOrigins([...new Set(data.map((dataPoint) => dataPoint.origin))])
+    })
+    }, []
+  )
+
   const filterOrigin = ({origin}) => {
     const newOriginFilterArray = [...originFilter, origin];
     setOriginFilter(newOriginFilterArray);

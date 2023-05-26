@@ -27,20 +27,20 @@
 
 .homePageContent {
   display: flex;
-}
 
-.homePageContent .sideNavBar {
-  flex: 20%;
-  border-style: solid;
-  margin: 20px;
-  text-align: center;
-}
+  .sideNavBar {
+    flex: 20%;
+    border-style: solid;
+    margin: 20px;
+    text-align: center;
+  }
 
-.homePageContent .flightsTable {
-  flex: 80%;
-  border-style: solid;
-  margin: 20px;
-  text-align: center;
+  .flightsTable {
+    flex: 80%;
+    border-style: solid;
+    margin: 20px;
+    text-align: center;
+  }
 }
 
 .topNavBar {
@@ -49,19 +49,22 @@
   display: flex;
   margin: 0 88%;
   max-width: 600px;
+
+  .links {
+    margin-left: 100%;
+    padding: 6px;
+  }
+
+  a {
+    margin-left: 16px;
+    padding: 6px;
+    color: #36454F;
+  }
+
+  a:hover {
+    color: red
+  }
 }
 
-.topNavBar .links {
-  margin-left: 100%;
-  padding: 6px;
-}
 
-.topNavBar a {
-  margin-left: 16px;
-  padding: 6px;
-  color: #36454F;
-}
 
-.topNavBar a:hover {
-  color: red
-}

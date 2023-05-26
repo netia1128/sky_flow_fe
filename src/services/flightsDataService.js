@@ -9,9 +9,8 @@ const rootURL = "http://localhost:3030/";
 
 
 export const getFlights = async () => {
-    console.log('wooooo')
-    // const response = await axios.get(`${ rootURL }flights` );
-    return ['hello', 'world'];
+    const response = await axios.get(`${ rootURL }flights` );
+    return response.data;
 }
 
 export const FlightsDataServiceProvider = ( props ) => {
@@ -25,9 +24,3 @@ export const FlightsDataServiceProvider = ( props ) => {
     </FlightsDataServiceContext.Provider>
   )
 }
-
-export const useFlightsDataService = () => {
-  const x = ['hello', 'world']
-  console.log(x)
-  return x;
-};
