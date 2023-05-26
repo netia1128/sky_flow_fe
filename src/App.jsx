@@ -11,6 +11,7 @@ export const App = () => {
   const [origins, setOrigins] = useState([]);
   const [originFilter, setOriginFilter] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [isError, setIsError] = useState(false);
 
   useEffect(() => {
     // Adding a timeout just to show off the loading effect 
@@ -18,9 +19,13 @@ export const App = () => {
       const data = getFlights()
         .then( data => {
         setFlights(data);
-        setOrigins([...new Set(data.map((dataPoint) => dataPoint.origin))])
-        setIsLoading(false)
-        })
+        setOrigins([...new Set(data.map((dataPoint) => dataPoint.origin))]);
+        setIsLoading(false);
+      })
+      .catch(err => {
+        setIsError(true);
+        setIsLoading(false);
+      })
       }, 1000)
     }, []
   )
@@ -40,6 +45,7 @@ export const App = () => {
         <body className='homePageContent'>
           <SideNavBar filterOrigin={filterOrigin} origins={origins}/>
           {isLoading && <div className="flightsTable">Flights Coming Soon!</div> }
+          {isError && <div className="flightsTable">Sorry, there was an error loading flights</div> }
           {flights && <FlightsTable originFilter={originFilter} flights={flights}/>}
         </body>
     </React.StrictMode>
