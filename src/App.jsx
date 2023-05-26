@@ -16,25 +16,24 @@ export const App = () => {
   useEffect(() => {
     // Adding a timeout just to show off the loading effect 
     setTimeout(() => {
-      const data = getFlights()
-        .then( data => {
+      getFlights()
+        .then(data => {
         setFlights(data);
         setOrigins([...new Set(data.map((dataPoint) => dataPoint.origin))]);
-        setIsLoading(false);
       })
       .catch(err => {
         setIsError(true);
-        setIsLoading(false);
       })
+      .finally(() => setIsLoading(false));
       }, 1000)
     }, []
   )
 
   const filterOrigin = ({origin}) => {
     if(originFilter.includes(origin)) {
-      setOriginFilter([...originFilter].filter((existingOrigin) => existingOrigin != origin))
+      setOriginFilter([originFilter].filter((existingOrigin) => existingOrigin != origin))
     } else {
-      setOriginFilter([...originFilter, origin]);
+      setOriginFilter([originFilter, origin]);
     }
   }
 
