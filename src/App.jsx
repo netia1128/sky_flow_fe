@@ -10,13 +10,18 @@ export const App = () => {
   const [flights, setFlights] = useState(null);
   const [origins, setOrigins] = useState([]);
   const [originFilter, setOriginFilter] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    const data = getFlights()
-      .then( data => {
-      setFlights(data);
-      setOrigins([...new Set(data.map((dataPoint) => dataPoint.origin))])
-    })
+    // Adding a timeout just to show off the loading effect 
+    setTimeout(() => {
+      const data = getFlights()
+        .then( data => {
+        setFlights(data);
+        setOrigins([...new Set(data.map((dataPoint) => dataPoint.origin))])
+        setIsLoading(false)
+        })
+      }, 1000)
     }, []
   )
 
@@ -34,7 +39,8 @@ export const App = () => {
         <TopNavBar filterOrigin={filterOrigin} />
         <body className='homePageContent'>
           <SideNavBar filterOrigin={filterOrigin} origins={origins}/>
-          <FlightsTable originFilter={originFilter} flights={flights}/>
+          {isLoading && <div className="flightsTable">Flights Coming Soon!</div> }
+          {flights && <FlightsTable originFilter={originFilter} flights={flights}/>}
         </body>
     </React.StrictMode>
   );

@@ -29,16 +29,18 @@
   display: flex;
 
   .sideNavBar {
-    flex: 20%;
+    width: 20%;
     border-style: solid;
     margin: 20px;
     text-align: center;
+    padding-top: 20px;
   }
 
   .flightsTable {
-    flex: 80%;
+    width: 80%;
     border-style: solid;
     margin: 20px;
+    padding-top: 20px;
     text-align: center;
   }
 }
