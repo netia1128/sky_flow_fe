@@ -1,7 +1,7 @@
 export const FlightsTableRow = ({flight}) => {
   return (
     <section className="flight-preview" key={flight.id}>
-    <h4>Flight {flight.id} </h4>
+    <h3>Flight {flight.id} </h3>
     <p>
       Origin: {flight.origin} Destination:{flight.destination}
     </p> 
