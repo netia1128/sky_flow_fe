@@ -9,11 +9,12 @@ import { FlightsTable } from './components/FlightsTable/FlightsTable';
 
 export const App = () => {
   const [flights, setFlights] = useState(null);
-  const [origins, setOrigins] = useState([]);
   const [originFilter, setOriginFilter] = useState([]);
   const [filteredFlights, setFilteredFlights] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [isError, setIsError] = useState(false);
+
+  const origins = [...new Set(flights?.map((flight) => flight.origin))];
 
   useEffect(() => {
     const getFlights = async () => {
@@ -21,7 +22,6 @@ export const App = () => {
         const {data} = await axios.get(`http://localhost:3030/flights`);
         setFlights(data);
         setFilteredFlights(data);
-        setOrigins([...new Set(data.map((dataPoint) => dataPoint.origin))]);
       } catch (err) {
         setIsError(true);
       }
@@ -55,7 +55,7 @@ export const App = () => {
     <>
       <TopNavBar filterOrigin={filterOrigin} />
       <main className='home-page-content'>
-        <SideNavBar filterOrigin={filterOrigin} origins={origins}/>
+        {origins && <SideNavBar filterOrigin={filterOrigin} origins={origins}/>}
         {isLoading && <div className="flights-table">Flights Coming Soon!</div> }
         {isError && <div className="flights-table">Sorry, there was an error loading flights</div> }
         {flights && <FlightsTable originFilter={originFilter} filteredFlights={filteredFlights}/>}
