@@ -1,14 +1,13 @@
-
-import { FilterButton } from '../FilterButton/FilterButton';
+import { FilterCheckBox } from './FilterCheckBox';
 
 export const SideNavBar = ({filterOrigin, origins}) => {
   
   return (
     <aside className="side-nav-bar">
       <h3>Filter Origin</h3>
-      <div className="filter-button-div">
+      <div className="filter-checkbox-div">
         {origins.map((origin) => {
-            return <FilterButton filterOrigin={filterOrigin} origin={origin} key={origin}/>
+            return <FilterCheckBox filterOrigin={filterOrigin} origin={origin} key={origin}/>
         })}
       </div>
     </aside>

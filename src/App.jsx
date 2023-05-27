@@ -3,9 +3,9 @@ import { useState, useEffect } from 'react';
 import React from 'react';
 import './index.scss';
 // import { getFlights } from './services/flightsDataService'
-import { TopNavBar } from './components/TopNavBar/TopNavBar';
-import { SideNavBar } from './components/SideNavBar/SideNavBar';
-import { FlightsTable } from './components/FlightsTable/FlightsTable';
+import { TopNavBar } from './components/TopNavBar';
+import { SideNavBar } from './components/SideNavBar';
+import { FlightsTable } from './components/FlightsTable';
 
 export const App = () => {
   const [flights, setFlights] = useState(null);

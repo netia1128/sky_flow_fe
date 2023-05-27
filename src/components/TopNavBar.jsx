@@ -1,4 +1,4 @@
-import logo from '../../assets/SkyFlowLogo.png';
+import logo from '../assets/SkyFlowLogo.png';
 
 export const TopNavBar = () => {
   return (
