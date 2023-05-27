@@ -11,7 +11,7 @@ export const FilterCheckBox = ({filterOrigin, origin}) => {
           filterOrigin({origin}) 
         }} 
       />
-      <span>{origin}</span>
+      {origin}
     </label>
   )
 }
