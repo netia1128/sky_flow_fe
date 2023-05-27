@@ -1,17 +1,14 @@
 import { useState } from 'react';
-// import { getFlights } from '../../services/flightsDataService';
 import { FlightsTableRow } from '../FlightsTableRow/FlightsTableRow';
 
-export const FlightsTable = ({originFilter, flights}) => {
+export const FlightsTable = ({originFilter, filteredFlights}) => {
 
 
   return (
-    <section className="flightsTable">
+    <section className="flights-table">
       <h1>Flights</h1>
       <section>
-        {flights?.filter((flight) => (
-          originFilter.length ? originFilter.includes(flight.origin) : flight
-        )).map((flight) => (
+        {filteredFlights.map((flight) => (
           <FlightsTableRow flight={flight} key={flight.id}/>
         ))}
       </section>

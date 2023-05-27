@@ -19,16 +19,16 @@
   display: block;
 }
 
-.flightPreview {
+.flight-preview {
   padding: 10px 16px;
   margin: 20px 0;
   border-bottom: 1px solid lightgrey;
 }
 
-.homePageContent {
+.home-page-content {
   display: flex;
   
-  .sideNavBar {
+  .side-nav-bar {
     width: 20%;
     border-style: solid;
     margin: 20px;
@@ -36,7 +36,7 @@
     padding-top: 20px;
   }
   
-  .flightsTable {
+  .flights-table {
     width: 80%;
     border-style: solid;
     margin: 20px;
@@ -45,11 +45,11 @@
   }
 }
 
-.selectedButton {
+.selected-button {
   background-color: lightblue;
 }
 
-.topNavBar {
+.top-nav-bar {
   padding: 20px;
   align-items: right;
   display: flex;
@@ -72,7 +72,7 @@
   }
 }
 
-.unselectedButton {
+.unselected-button {
   background-color: white;
 }
 

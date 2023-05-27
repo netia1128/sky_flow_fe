@@ -11,6 +11,7 @@ export const App = () => {
   const [flights, setFlights] = useState(null);
   const [origins, setOrigins] = useState([]);
   const [originFilter, setOriginFilter] = useState([]);
+  const [filteredFlights, setFilteredFlights] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [isError, setIsError] = useState(false);
 
@@ -19,6 +20,7 @@ export const App = () => {
       try {
         const {data} = await axios.get(`http://localhost:3030/flights`);
         setFlights(data);
+        setFilteredFlights(data);
         setOrigins([...new Set(data.map((dataPoint) => dataPoint.origin))]);
       } catch (err) {
         setIsError(true);
@@ -35,20 +37,28 @@ export const App = () => {
 
   const filterOrigin = ({origin}) => {
     if(originFilter.includes(origin)) {
-      setOriginFilter([originFilter].filter((existingOrigin) => existingOrigin !== origin))
-    } else {
-      setOriginFilter([originFilter, origin]);
+        setOriginFilter(originFilter.filter((existingOrigin) => existingOrigin !== origin))
+      } else {
+      setOriginFilter([...originFilter, origin]);
     }
   }
 
+  useEffect(() => {
+      if(!originFilter.length) {
+        setFilteredFlights(flights);
+      } else {
+        setFilteredFlights(flights.filter((flight) => originFilter.includes(flight.origin)));
+      }
+  }, [originFilter])
+  
   return (
     <>
       <TopNavBar filterOrigin={filterOrigin} />
-      <main className='homePageContent'>
+      <main className='home-page-content'>
         <SideNavBar filterOrigin={filterOrigin} origins={origins}/>
-        {isLoading && <div className="flightsTable">Flights Coming Soon!</div> }
-        {isError && <div className="flightsTable">Sorry, there was an error loading flights</div> }
-        {flights && <FlightsTable originFilter={originFilter} flights={flights}/>}
+        {isLoading && <div className="flights-table">Flights Coming Soon!</div> }
+        {isError && <div className="flights-table">Sorry, there was an error loading flights</div> }
+        {flights && <FlightsTable originFilter={originFilter} filteredFlights={filteredFlights}/>}
       </main>
     </>
   );

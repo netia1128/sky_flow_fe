@@ -1,14 +1,14 @@
 
-import { filter-button } from '../filter-button/filter-button';
+import { FilterButton } from '../FilterButton/FilterButton';
 
 export const SideNavBar = ({filterOrigin, origins}) => {
   
   return (
-    <aside className="sideNavBar">
+    <aside className="side-nav-bar">
       <h3>Filter Origin</h3>
       <div className="filter-button-div">
         {origins.map((origin) => {
-            return <filter-button filterOrigin={filterOrigin} origin={origin}key={origin}/>
+            return <FilterButton filterOrigin={filterOrigin} origin={origin} key={origin}/>
         })}
       </div>
     </aside>
