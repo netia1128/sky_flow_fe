@@ -20,9 +20,8 @@
 }
 
 .flight-preview {
-  padding: 10px 16px;
-  margin: 20px 0;
-  border-bottom: 1px solid lightgrey;
+  padding: 1rem;
+  border: 1px solid lightgrey;
 }
 
 .home-page-content {
@@ -31,16 +30,16 @@
   .side-nav-bar {
     width: 20%;
     border-style: solid;
-    margin: 20px;
+    margin: 2rem;
     text-align: center;
-    padding-top: 20px;
+    padding-top: 1rem;
   }
   
   .flights-table {
     width: 80%;
     border-style: solid;
-    margin: 20px;
-    padding-top: 20px;
+    margin: 2rem;
+    padding-top: 1rem;
     text-align: center;
   }
 }
@@ -50,20 +49,18 @@
 }
 
 .top-nav-bar {
-  padding: 20px;
+  padding: 1rem;
   align-items: right;
   display: flex;
   margin: 0 88%;
-  max-width: 600px;
   
   .links {
     margin-left: 100%;
-    padding: 6px;
   }
   
   a {
-    margin-left: 16px;
-    padding: 6px;
+    margin-left: 1rem;
+    padding: 1 rem;
     color: #36454F;
 
     &:hover {
