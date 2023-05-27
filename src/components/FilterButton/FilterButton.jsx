@@ -1,10 +1,10 @@
 import { useState } from "react";
 
-export const FilterButton = ({filterOrigin, origin}) => {
+export const filter-button = ({filterOrigin, origin}) => {
   const [buttonSelected, setButtonSelected] = useState(false);
 
   return (
-    <button className={`filterButton ${buttonSelected ? "selectedButton" : "unselectedButton"}`}
+    <button className={`filter-button ${buttonSelected ? "selectedButton" : "unselectedButton"}`}
       onClick={() => {
         setButtonSelected(!buttonSelected);
         filterOrigin({origin}) 
