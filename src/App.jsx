@@ -5,7 +5,7 @@ import './index.scss';
 // import { getFlights } from './services/flightsDataService'
 import { TopNavBar } from './components/TopNavBar';
 import { SideNavBar } from './components/SideNavBar';
-import { FlightsTable } from './components/FlightsTable';
+import { FlightsList } from './components/FlightsList';
 
 export const App = () => {
   const [flights, setFlights] = useState(null);
@@ -56,9 +56,9 @@ export const App = () => {
       <TopNavBar filterOrigin={filterOrigin} />
       <main className='home-page-content'>
         {origins && <SideNavBar filterOrigin={filterOrigin} origins={origins}/>}
-        {isLoading && <div className="flights-table">Flights Coming Soon!</div> }
-        {isError && <div className="flights-table">Sorry, there was an error loading flights</div> }
-        {flights && <FlightsTable originFilter={originFilter} filteredFlights={filteredFlights}/>}
+        {isLoading && <div className="flights-list">Flights Coming Soon!</div> }
+        {isError && <div className="flights-list">Sorry, there was an error loading flights</div> }
+        {flights && <FlightsList originFilter={originFilter} filteredFlights={filteredFlights}/>}
       </main>
     </>
   );
