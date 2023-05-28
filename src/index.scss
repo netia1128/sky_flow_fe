@@ -9,28 +9,29 @@
 .filter-checkbox-div {
   display: inline-block;
 
-  label {
-    justify-content: center;
-    border-radius: 50%;
-    width: 4rem;
-    height: 3rem;
-    border: 2px solid black;
-    color: #black;
-    margin: 2rem;
-    display: inline-flex;
-    align-items: center;
-  }
-
   input[type='checkbox'] {
     display: none;
     
+    + label {
+      justify-content: center;
+      border-radius: 50%;
+      width: 4rem;
+      height: 3rem;
+      border: 2px solid black;
+      color: #black;
+      margin: 2rem;
+      display: inline-flex;
+      align-items: center;
+      cursor: pointer;
+    }
+    
     &:checked {
-      display: inline;
-      background-color: lightblue;
+      + label {
+        background-color: lightblue;
+      }
     }
   }
 }
-
 
 .filter-button-div {
 }
