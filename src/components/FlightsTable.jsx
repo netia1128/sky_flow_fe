@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { FlightsTableRow } from '../FlightsTableRow/FlightsTableRow';
+import { FlightsTableRow } from './FlightsTableRow';
 
 export const FlightsTable = ({originFilter, filteredFlights}) => {
 
