@@ -10,7 +10,6 @@ import { FlightsList } from './components/FlightsList';
 export const App = () => {
   const [flights, setFlights] = useState(null);
   const [originFilter, setOriginFilter] = useState([]);
-  const [filteredFlights, setFilteredFlights] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [isError, setIsError] = useState(false);
 
@@ -21,7 +20,6 @@ export const App = () => {
       try {
         const {data} = await axios.get(`http://localhost:3030/flights`);
         setFlights(data);
-        setFilteredFlights(data);
       } catch (err) {
         setIsError(true);
       }
@@ -43,13 +41,11 @@ export const App = () => {
     }
   }
 
-  useEffect(() => {
-      if(!originFilter.length) {
-        setFilteredFlights(flights);
-      } else {
-        setFilteredFlights(flights.filter((flight) => originFilter.includes(flight.origin)));
-      }
-  }, [originFilter])
+  let filteredFlights = flights;
+
+  if(originFilter.length) {
+    filteredFlights = flights.filter((flight) => originFilter.includes(flight.origin));
+  }
   
   return (
     <>
