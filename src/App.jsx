@@ -6,42 +6,46 @@ import './index.scss';
 import { TopNavBar } from './components/TopNavBar';
 import { SideNavBar } from './components/SideNavBar';
 import { FlightsList } from './components/FlightsList';
+import { useAxiosGet } from './hooks/useAxiosGet';
+
 
 export const App = () => {
-  const [flights, setFlights] = useState(null);
+  // const [flights, setFlights] = useState(null);
   const [originFilter, setOriginFilter] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
-  const [isError, setIsError] = useState(false);
+  // const [isLoading, setIsLoading] = useState(true);
+  // const [isError, setIsError] = useState(false);
+
+  const { data: flights, isLoading, isError } = useAxiosGet(`/flights`);
 
   const origins = [...new Set(flights?.map((flight) => flight.origin))];
 
-  useEffect(() => {
-    let isApiSubscribed = true;
-    const controller = new AbortController();
+  // useEffect(() => {
+  //   let isApiSubscribed = true;
+  //   const controller = new AbortController();
 
-    const getFlights = async () => {
-      try {
-        const {data} = await axios.get(`http://localhost:3030/flights`, { signal: AbortSignal.timeout(5000) });
-        if (isApiSubscribed) setFlights(data);
-      } catch (err) {
-        console.log(err)
-        setIsError(true);
-      }
-    }
+  //   const getFlights = async () => {
+  //     try {
+  //       const {data} = await axios.get(`http://localhost:3030/flights`, { signal: AbortSignal.timeout(5000) });
+  //       if (isApiSubscribed) setFlights(data);
+  //     } catch (err) {
+  //       console.log(err)
+  //       setIsError(true);
+  //     }
+  //   }
 
-    // Adding a timeout just to show off the loading effect 
-    setTimeout(() => {
-      getFlights()
-      setIsLoading(false)
-      }
-    , 1000)
+  //   // Adding a timeout just to show off the loading effect 
+  //   setTimeout(() => {
+  //     getFlights()
+  //     setIsLoading(false)
+  //     }
+  //   , 1000)
       
-    return () => {
-      isApiSubscribed = false;
-      controller.abort();
-    }
-    }, []
-  )
+  //   return () => {
+  //     isApiSubscribed = false;
+  //     controller.abort();
+  //   }
+  //   }, []
+  // )
 
   const filterOrigin = ({origin}) => {
     if(originFilter.includes(origin)) {
