@@ -1,0 +1,87 @@
+.home-page-content {
+  display: flex;
+  
+  .side-nav-bar {
+    width: 20%;
+    border-style: solid;
+    margin: 3rem;
+    text-align: center;
+    padding-top: 1rem;
+    
+    .filter-checkbox-div {
+      display: inline-block;
+      
+      input[type='checkbox'] {
+        display: none;
+        
+        + label {
+          justify-content: center;
+          border-radius: 50%;
+          width: 4rem;
+          height: 3rem;
+          border: 2px solid black;
+          margin: 2rem;
+          display: inline-flex;
+          align-items: center;
+          cursor: pointer;
+        }
+        
+        &:checked {
+          + label {
+            background-color: lightblue;
+          }
+        }
+      }
+    }
+  }
+  
+  .flights-list {
+    width: 80%;
+    border-style: solid;
+    margin: 3rem;
+    padding-top: 1rem;
+    text-align: center;
+
+    ul {
+      margin: 1rem;
+      padding: 1rem;
+      
+      li {
+        list-style: none;
+        border: 1px solid lightgrey;
+      }
+    }
+    
+  }
+}
+
+.top-nav-bar {
+  padding: 1rem;
+  align-items: right;
+  display: flex;
+  margin: 0 88%;
+
+  .app-logo {
+    height: 10vmin;
+    pointer-events: none;
+    position: fixed;
+    top:0;
+    left:0;
+  }
+  
+  .links {
+    margin-left: 100%;
+  }
+  
+  a {
+    margin-left: 1rem;
+    padding: 1 rem;
+    color: #36454F;
+
+    &:hover {
+    color: red;
+    }
+  }
+}
+
+
