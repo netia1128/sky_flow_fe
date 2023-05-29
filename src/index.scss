@@ -53,6 +53,20 @@
       li {
         list-style: none;
         border: 1px solid lightgrey;
+
+        .side-drawer {
+
+          table {
+            width: 90%;
+            text-align: left;
+            vertical-align: text-top;
+            border-color: white;
+            margin: 1rem;
+          }
+          td {
+            border: 1px dotted black;
+          }
+        }
       }
     }
     

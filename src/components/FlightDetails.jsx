@@ -8,10 +8,20 @@ export const FlightDetails = ({toggleDrawer, flightDetails}) => {
     return hours ? `${hours} hours ${minutes} minutes` : `${minutes} minutes`;
   }
 
+  const reformatDate = (rawDate) => {
+    const date = new Date(rawDate);
+    const year = date.getFullYear();
+    const month = date.getMonth();
+    const day = date.getDate();
+    return `${month}-${day}-${year}`;
+  }
+
   const humanReadableDuration = makeDurationHumanReadable();
+  const departureDate = reformatDate(flightDetails.departureDate);
+  const returnDate = flightDetails.returnDate ? reformatDate(flightDetails.returnDate) : 'NA - One Way';
 
   return (
-    <Drawer open={true} direction='right'>
+    <Drawer className="side-drawer" open={true} direction='right' style={{width: "20%"}}>
     <h2>Flight Details</h2>
       <table>
         <tbody>
@@ -25,19 +35,19 @@ export const FlightDetails = ({toggleDrawer, flightDetails}) => {
           </tr>
           <tr>
             <td>Departure Date</td>
-            <td>{flightDetails.departureDate}</td>
+            <td>{departureDate}</td>
           </tr>
           <tr>
             <td>Return Date</td>
-            <td>{flightDetails.departureDate || 'NA - One Way'}</td>
+            <td>{returnDate}</td>
           </tr>
           <tr>
             <td>Price</td>
-            <td>{flightDetails.priceUsd || 'NA - One Way'}</td>
+            <td>{`$${flightDetails.priceUsd}`}</td>
           </tr>
           <tr>
             <td>Class</td>
-            <td>{flightDetails.tripClassName || 'NA - One Way'}</td>
+            <td>{flightDetails.tripClassName}</td>
           </tr>
           <tr>
             <td>Duration</td>
@@ -49,7 +59,7 @@ export const FlightDetails = ({toggleDrawer, flightDetails}) => {
           </tr>
         </tbody>
       </table>
-    <button onClick={toggleDrawer}>Close</button>
+    <button onClick={toggleDrawer}>Close Details</button>
   </Drawer>
   )
 }
