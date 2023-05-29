@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import React from 'react';
 import { SideNavBar } from '../components/SideNavBar';
-import { FlightsList } from '../components/FlightsList';
+import { FlightsTable } from '../components/FlightsTable';
 import { useAxiosGet } from '../hooks/useAxiosGet';
 
 
@@ -33,7 +33,7 @@ export const Home = () => {
         {origins && <SideNavBar filterOrigin={filterOrigin} origins={origins}/>}
         {isLoading && <div className="flights-list">Flights Coming Soon!</div> }
         {isError && <div className="flights-list">Sorry, there was an error loading flights</div> }
-        {flights && <FlightsList originFilter={originFilter} filteredFlights={filteredFlights}/>}
+        {flights && <FlightsTable filteredFlights={filteredFlights}/>}
       </main>
     </>
   );
