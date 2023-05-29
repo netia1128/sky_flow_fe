@@ -3,6 +3,7 @@ import React from 'react';
 import { SideNavBar } from '../components/SideNavBar';
 import { FlightsTable } from '../components/FlightsTable';
 import { useAxiosGet } from '../hooks/useAxiosGet';
+import { IngestFlightsButton } from '../components/IngestFlightsButton';
 
 
 export const Home = () => {
@@ -29,11 +30,16 @@ export const Home = () => {
   
   return (
     <>
-      <main id="home-page-content" className='home-page-content'>
-        {origins && <SideNavBar filterOrigin={filterOrigin} origins={origins}/>}
-        {isLoading && <div className="flights-list">Flights Coming Soon!</div> }
-        {isError && <div className="flights-list">Sorry, there was an error loading flights</div> }
-        {flights && <FlightsTable filteredFlights={filteredFlights}/>}
+      <main className='home-page-content'>
+        <div className="ingest-flight-button-container">
+          <IngestFlightsButton/>
+        </div>
+        <div className="flight-explorer-container">
+          {origins && <SideNavBar filterOrigin={filterOrigin} origins={origins}/>}
+          {isLoading && <div className="flights-list">Flights Coming Soon!</div> }
+          {isError && <div className="flights-list">Sorry, there was an error loading flights</div> }
+          {flights && <FlightsTable filteredFlights={filteredFlights}/>}
+        </div>
       </main>
     </>
   );
