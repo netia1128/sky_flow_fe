@@ -16,11 +16,15 @@ export const App = () => {
   const origins = [...new Set(flights?.map((flight) => flight.origin))];
 
   useEffect(() => {
+    let isApiSubscribed = true;
+    const controller = new AbortController();
+
     const getFlights = async () => {
       try {
-        const {data} = await axios.get(`http://localhost:3030/flights`);
-        setFlights(data);
+        const {data} = await axios.get(`http://localhost:3030/flights`, { signal: AbortSignal.timeout(5000) });
+        if (isApiSubscribed) setFlights(data);
       } catch (err) {
+        console.log(err)
         setIsError(true);
       }
     }
@@ -29,7 +33,13 @@ export const App = () => {
     setTimeout(() => {
       getFlights()
       setIsLoading(false)
-      }, 1000)
+      }
+    , 1000)
+      
+    return () => {
+      isApiSubscribed = false;
+      controller.abort();
+    }
     }, []
   )
 
