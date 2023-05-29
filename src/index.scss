@@ -55,8 +55,8 @@
       }
 
       tr {
-        justify-content: space-between;
         border-top: 1px solid black;
+        justify-content: space-between;
         justify-content: space-between;
         height: 1rem;
         padding: 1rem;
@@ -94,7 +94,7 @@
   .app-logo {
     height: 10vmin;
     pointer-events: none;
-    position: fixed;
+    position: absolute;
     top:0;
     left:0;
   }
