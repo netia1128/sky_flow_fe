@@ -24,7 +24,7 @@
           width: 4rem;
           height: 3rem;
           border: 2px solid black;
-          margin: 2rem;
+          margin: 1rem;
           display: inline-flex;
           align-items: center;
           cursor: pointer;
@@ -50,8 +50,8 @@
       width: 100%;
       border-bottom: 1px solid black;
 
-      th {
-        text-align: left;
+      thead {
+        background-color: #FFF6CF;
       }
 
       tr {
@@ -61,27 +61,27 @@
         height: 1rem;
         padding: 1rem;
         display: flex;
+      }
 
-        button {
-          height: 2rem;
+      tr:nth-child(even) {
+        background-color: #FFFFE3;
+      }
+
+      .side-drawer {
+
+        table {
+          width: 90%;
+          text-align: left;
+          vertical-align: text-top;
+          border-color: white;
+          margin: 1rem;
         }
 
-        .side-drawer {
-
-          table {
-            width: 90%;
-            text-align: left;
-            vertical-align: text-top;
-            border-color: white;
-            margin: 1rem;
-          }
-          tr {
-            border: 1px dotted black;
-          }
+        tr {
+          border: 1px dotted black;
         }
       }
     }
-    
   }
 }
 
