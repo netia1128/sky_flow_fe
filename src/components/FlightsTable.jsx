@@ -9,7 +9,7 @@ export const FlightsTable = ({filteredFlights}) => {
           <tr>
             <th><div className="flight-table-header-div">Date</div></th>
             <th>Origin</th>
-            <th>Departure</th>
+            <th>Destination</th>
             <th>Price (usd) </th>
             <th>Round Trip</th>
             <th>Details</th>
