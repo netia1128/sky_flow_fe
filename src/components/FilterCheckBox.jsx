@@ -5,7 +5,7 @@ export const FilterCheckBox = ({filterOrigin, origin}) => {
 
   return (
     <div>
-      <input type="checkbox" id={`checkbox-${origin}`} value={origin} className={`filter-checkbox ${checkboxSelected ? "selected-button" : "unselected-button"}`}
+      <input type="checkbox" id={`checkbox-${origin}`} value={origin}
       onClick={() => {
         setCheckBoxSelected(!checkboxSelected);
             filterOrigin({origin}) 
