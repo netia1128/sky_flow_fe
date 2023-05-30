@@ -23,6 +23,7 @@ export const FlightDetails = ({toggleDrawer, flightDetails}) => {
   return (
     <Drawer className="side-drawer" open={true} direction='right' style={{width: "20%"}}>
     <h2>Flight Details</h2>
+    <hr></hr>
       <table>
         <tbody>
           <tr>
