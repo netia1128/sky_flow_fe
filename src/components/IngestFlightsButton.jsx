@@ -1,10 +1,12 @@
 import axios from 'axios';
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import addIcon from '../assets/AddIcon.png';
 
 export const IngestFlightsButton = () => {
   const [isError, setIsError] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const navigate = useNavigate();
 
   const sendPostRequest = async () => {
     setIsLoading(true);
@@ -25,6 +27,7 @@ export const IngestFlightsButton = () => {
     }
     if (postResult.status === 200) {
       setIsLoading(false);
+      navigate(`/`);
     } else {
       setIsError(true);
       setTimeout(() => {
