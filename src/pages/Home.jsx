@@ -31,13 +31,11 @@ export const Home = () => {
   return (
     <>
       <main className='home-page-content'>
-        <div className="ingest-flight-button-container">
-          <IngestFlightsButton/>
-        </div>
+        <IngestFlightsButton/>
         <div className="flight-explorer-container">
           {origins && <SideNavBar filterOrigin={filterOrigin} origins={origins}/>}
-          {isLoading && <div className="flights-list">Flights Coming Soon!</div> }
-          {isError && <div className="flights-list">Sorry, there was an error loading flights</div> }
+          {isLoading && <div className="flights-table-section">Flights Coming Soon!</div> }
+          {isError && <div className="flights-table-section">Sorry, there was an error loading flights</div> }
           {flights && <FlightsTable filteredFlights={filteredFlights}/>}
         </div>
       </main>

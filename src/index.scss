@@ -9,11 +9,12 @@
   .ingest-flight-button-container {
     display: flex;
     justify-content: flex-end;
-
+    margin-right: 3rem;
+    margin-top: 1rem;
+    color: darkred;
+    
     button {
       height: 3rem;
-      margin-right: 3rem;
-      margin-top: 1rem;
       background-color: white;
       border: none;
       display: flex;
