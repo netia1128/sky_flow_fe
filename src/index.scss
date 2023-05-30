@@ -1,57 +1,116 @@
+.about-page-content { 
+  padding: 2rem;
+}
+
 .home-page-content {
   display: flex;
+  flex-direction: column;
   
-  .side-nav-bar {
-    width: 20%;
-    border-style: solid;
-    margin: 3rem;
-    text-align: center;
-    padding-top: 1rem;
+  .ingest-flight-button-container {
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 3rem;
+    margin-top: 1rem;
+    color: darkred;
     
-    .filter-checkbox-div {
-      display: inline-block;
+    button {
+      height: 3rem;
+      background-color: white;
+      border: none;
+      display: flex;
+      align-items: stretch;
+    }
+  }
+
+  .flight-explorer-container {
+    display: flex;
+    flex-direction: row;
+
+    .side-nav-bar {
+      width: 20%;
+      border-style: solid;
+      margin: 3rem;
+      text-align: center;
+      padding-top: 1rem;
       
-      input[type='checkbox'] {
-        display: none;
+      .filter-checkbox-div {
+        display: inline-block;
         
-        + label {
-          justify-content: center;
-          border-radius: 50%;
-          width: 4rem;
-          height: 3rem;
-          border: 2px solid black;
-          margin: 2rem;
-          display: inline-flex;
-          align-items: center;
-          cursor: pointer;
-        }
-        
-        &:checked {
+        input[type='checkbox'] {
+          display: none;
+          
           + label {
-            background-color: lightblue;
+            justify-content: center;
+            border-radius: 50%;
+            width: 4rem;
+            height: 3rem;
+            border: 2px solid black;
+            margin: 1rem;
+            display: inline-flex;
+            align-items: center;
+            cursor: pointer;
+          }
+          
+          &:checked {
+            + label {
+              background-color: #FFF6CF;
+            }
           }
         }
       }
     }
   }
   
-  .flights-list {
+  .flights-table-section {
     width: 80%;
     border-style: solid;
     margin: 3rem;
     padding-top: 1rem;
     text-align: center;
 
-    ul {
-      margin: 1rem;
-      padding: 1rem;
+    .flights-table {
+      width: 100%;
+      text-align: center;
+      justify-content: space-between;
+      border-collapse: collapse;
       
-      li {
-        list-style: none;
-        border: 1px solid lightgrey;
+      thead {
+        height: 4rem;
+        background-color: #FFF6CF;
+      }
+      
+      tbody {
+        padding: 1rem;
+
+        tr {
+          height: 4rem;
+          border-top: 1px solid black;
+          border-bottom: 1px solid black;
+
+          &:nth-child(even) {
+            background-color: #FFFFE3;
+          }
+        }
+        
+        
+      }
+
+
+      .side-drawer {
+
+        table {
+          width: 90%;
+          text-align: left;
+          vertical-align: text-top;
+          border-color: white;
+          margin: 1rem;
+        }
+
+        tr {
+          border: 1px dotted black;
+        }
       }
     }
-    
   }
 }
 
@@ -59,12 +118,12 @@
   padding: 1rem;
   align-items: right;
   display: flex;
-  margin: 0 88%;
+  margin-right: 9rem;
 
   .app-logo {
     height: 10vmin;
     pointer-events: none;
-    position: fixed;
+    position: absolute;
     top:0;
     left:0;
   }
